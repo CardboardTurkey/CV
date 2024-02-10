@@ -40,7 +40,7 @@
     )
   )
   grid(
-    columns: (35%, auto),
+    columns: (40%, auto),
     rows: 100%,
     // column-gutter: 1em,
     block(
