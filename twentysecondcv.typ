@@ -27,14 +27,7 @@
   Huge: 25pt,
 )
 
-/**
- * @pages {int} total pages to calculate left block height,
- since it's difficult to calculate using typst. default to 1.
- * @left {block} left block
- * @right {block} right block
- */
 #let main(
-  pages: 1,
   left,
   right,
 ) = {
@@ -47,24 +40,25 @@
     )
   )
   grid(
-    columns: (35%, 65%),
-    rows: auto,
+    columns: (35%, auto),
+    rows: 100%,
     // column-gutter: 1em,
     block(
       fill: sidecolor,
-      height: pages * 100%,
+      height: 100%,
       pad(
         top: 1cm,
+        left: 1cm,
         rest: 0.5cm,
         left
       )
     ),
     block(
-      height: auto,
+      height: 100%,
       pad(
         top: 0.7cm,
         rest: 0.5cm,
-        right,
+        right
       )
     ),
   )
@@ -110,7 +104,7 @@
   )
 */
 #let show_interests(interests) = {
-  set text(size: fontSize.large, fill: gray80)
+  set text(size: fontSize.Large, fill: gray80)
   for interest in interests {
     text(interest.interest)
     linebreak()
@@ -137,7 +131,7 @@
   grid(
     columns: (auto, auto),
     column-gutter: 1em,
-    row-gutter: 1em,
+    row-gutter: 1.5em,
     ..c
   )
 }
@@ -168,7 +162,8 @@
   body: ""
 ) = {
   grid(
-    columns: (20%, 80%),
+    columns: (auto, 80%),
+    column-gutter: 0.5em,
     period,
     par([
       #block()[
@@ -183,3 +178,4 @@
     ])
   )
 }
+
